@@ -22,3 +22,8 @@ yarn add react react-dom react-router-dom@6
 ```
 yarn add -D typescript ts-loader @types/node @types/react @types/react-dom
 ```
+
+# HTML
+```
+yarn add -D html-webpack-plugin ejs-compiled-loader html-webpack-injector
+``` 
