@@ -1,9 +1,9 @@
 {
-    "name": "mobx",
+    "name": "react-mobx",
     "type": "module",
     "version": "1.0.0",
     "main": "index.js",
-    "repository": "git@github.com:oramor/mobx.git",
+    "repository": "git@github.com:oramor/react-mobx.git",
     "author": "Roman Rodin <romaro83@gmail.com>",
     "license": "MIT",
     "scripts": {

@@ -4,9 +4,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 export default {
     mode: 'development',
     entry: './pages/MainPage/MainPageChunk.tsx',
-    context: '/home/romaro/mobx/project',
+    context: '/home/romaro/react-mobx/project',
     output: {
-        path: '/home/romaro/mobx/project/_web',
+        path: '/home/romaro/react-mobx/project/_web',
         filename: 'bundle.js',
     },
     resolve: {
