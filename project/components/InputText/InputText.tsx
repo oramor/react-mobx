@@ -1,10 +1,20 @@
 import React from 'react';
+import { FormFieldNode } from '../../core/BaseFormStore';
 
-export interface InputTextProps {
-    placeholder?: string;
+type InputTextProps = FormFieldNode & {
     onChange?: (ev: React.FormEvent<HTMLInputElement>) => void;
-}
+};
 
-export function InputText(props: InputTextProps) {
-    return <input type="text" placeholder={props.placeholder} onChange={props.onChange} />;
+// export interface InputTextProps {
+//     placeholder?: string;
+//     onChange?: (ev: React.FormEvent<HTMLInputElement>) => void;
+// }
+
+export function InputText({ title, placeholder, onChange }: InputTextProps) {
+    return (
+        <label>
+            {title}
+            <input type="text" placeholder={placeholder} onChange={onChange} />
+        </label>
+    );
 }
