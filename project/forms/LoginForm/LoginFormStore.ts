@@ -1,6 +1,6 @@
 import { BaseFormStore, FormFieldNode } from '../../core/BaseFormStore';
 
-export class MainFormStore extends BaseFormStore {
+export class LoginFormStore extends BaseFormStore {
     private _loginField: FormFieldNode = {
         title: 'Логин:',
         value: '',
