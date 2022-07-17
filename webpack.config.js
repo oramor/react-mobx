@@ -1,9 +1,12 @@
+import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
+const pageName = 'LoginFormPage';
+
 export default {
     mode: 'development',
-    entry: './pages/MainPage/MainPageChunk.tsx',
+    entry: './' + path.join('pages', pageName, pageName + 'Chunk.tsx'),
     context: '/home/romaro/react-mobx/project',
     output: {
         path: '/home/romaro/react-mobx/project/_web',
@@ -42,7 +45,7 @@ export default {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './pages/MainPage/MainPage.ejs',
+            template: './' + path.join('pages', pageName, pageName + '.ejs'),
         }),
     ],
     optimization: {

@@ -6,7 +6,7 @@ export interface FormFieldNode {
 }
 
 export abstract class BaseFormStore {
-    public updateField(fieldName, value) {
+    public updateField(fieldName) {
         if (Object.keys(this).includes(fieldName)) {
             throw new Error(`Not found Field ${fieldName}`);
         }
