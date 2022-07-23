@@ -9,13 +9,11 @@ export abstract class BaseFormFront {
         this.lang = args[0];
     }
 
+    // TODO (ctx)
     protected makeObservableWrapper() {
         const regex = /^_\w*/;
         const obj = {
             inputUpdateAction: action,
-            sendForm: action,
-            setRequestOff: action,
-            setRequestOn: action,
         };
 
         Object.keys(this).forEach((fieldName) => {

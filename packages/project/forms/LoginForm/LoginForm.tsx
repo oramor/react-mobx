@@ -7,24 +7,21 @@ import { InputTextComputed } from '../../components/InputText/InputTextComputed'
 
 const store = new LoginFormStore();
 
-const onChangeLoginHandler: InputChangeHandler = (ev) => {
-    store.updateLogin(ev.target.value);
-};
+// const onChangeLoginHandler: InputChangeHandler = (ev) => {
+//     store.updateLogin(ev.target.value);
+// };
 
-const onChangeOneHandler: InputChangeHandler = (ev) => {
-    store.updateTestOne(ev.target.value);
-};
+// const onChangeOneHandler: InputChangeHandler = (ev) => {
+//     store.updateTestOne(ev.target.value);
+// };
 
-const onChangeTwoHandler: InputChangeHandler = (ev) => {
-    store.updateTestTwo(ev.target.value);
-};
+// const onChangeTwoHandler: InputChangeHandler = (ev) => {
+//     store.updateTestTwo(ev.target.value);
+// };
 
-/**
- * Пробую поставить общий хендлер для разных полей
- */
-// const onChangeHandler: InputChangeHandler = (ev) => {
-//     store['']
-// }
+const onChangeLoginHandler = store.inputUpdateFactory('login');
+const onChangeOneHandler = store.inputUpdateFactory('testOne');
+const onChangeTwoHandler = store.inputUpdateFactory('testTwo');
 
 export const LoginForm = observer(() => {
     //trace(true);

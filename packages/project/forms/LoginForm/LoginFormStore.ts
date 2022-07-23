@@ -1,7 +1,8 @@
 import { LoginFormSchema } from './LoginFormSchema';
-import { makeAutoObservable } from 'mobx';
+//import { makeAutoObservable } from 'mobx';
+import { BaseFormFront } from '../../core/BaseFormFront';
 
-export class LoginFormStore {
+export class LoginFormStore extends BaseFormFront {
     private _login: FormFieldSchema = {
         ...LoginFormSchema['login'],
         error: '',
@@ -18,7 +19,9 @@ export class LoginFormStore {
         value: '',
     };
     constructor() {
-        makeAutoObservable(this);
+        super('ru');
+        this.makeObservableWrapper();
+        //makeAutoObservable(this);
     }
 
     get login() {
@@ -47,15 +50,15 @@ export class LoginFormStore {
         };
     }
 
-    updateLogin(v: string) {
-        this._login.value = v;
-    }
+    // updateLogin(v: string) {
+    //     this._login.value = v;
+    // }
 
-    updateTestOne(v: string) {
-        this._testOne.value = v;
-    }
+    // updateTestOne(v: string) {
+    //     this._testOne.value = v;
+    // }
 
-    updateTestTwo(v: string) {
-        this._testTwo.value = v;
-    }
+    // updateTestTwo(v: string) {
+    //     this._testTwo.value = v;
+    // }
 }
