@@ -16,7 +16,7 @@ type FormFieldSchema = FormSchemaNode & {
     value: string;
 };
 
-type FormFieldSchemaComputed = {
+type FormFieldComputed = {
     value: string;
     title: string;
     required: boolean;

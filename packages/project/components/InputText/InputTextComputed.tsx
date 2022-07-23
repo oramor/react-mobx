@@ -1,4 +1,4 @@
-type InputTextProps = FormFieldSchemaComputed & {
+type InputTextProps = FormFieldComputed & {
     onChange?: InputChangeHandler;
 };
 
