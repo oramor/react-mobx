@@ -5,12 +5,12 @@ yarn add -D rimraf
 
 # MobX
 ```
-yarn add mobx@6
+yarn add mobx mobx-react
 ```
 
 # Webpack
 ```
-yarn add -D webpack webpack-cli clean-webpack-plugin webpack-dev-server
+yarn add -D webpack webpack-cli clean-webpack-plugin webpack-dev-server 
 ```
 
 # React
@@ -27,3 +27,8 @@ yarn add -D typescript ts-loader @types/node @types/react @types/react-dom
 ```
 yarn add -D html-webpack-plugin ejs-compiled-loader html-webpack-injector
 ``` 
+
+# SASS
+```
+yarn add -D sass sass-loader mini-css-extract-plugin css-loader
+```

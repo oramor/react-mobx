@@ -1,11 +1,11 @@
 {
-    "extends": "../tsconfig.json",
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
         "composite": true,
         "module": "ES2020",
-        "rootDir": ".",
-        "outDir": "_web",
         "target": "ESNext",
+        "rootDir": ".",
+        "outDir": "_public",
         "moduleResolution": "Node",
         "allowSyntheticDefaultImports": true,
         "useUnknownInCatchVariables": false,
@@ -14,6 +14,6 @@
         "jsx": "react-jsx"
     },
     "include": [
-        "pages/LoginFormPage"
+        "**/*"
     ]
 }

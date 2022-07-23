@@ -1,15 +1,39 @@
 import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const pageName = 'LoginFormPage';
+const CONFIG = {
+    rootPath: '/home/romaro/react-mobx',
+    projectDirName: 'project',
+    outputDirName: '_public',
+    pageName: 'LoginPage',
+};
+
+function pageFileName(type) {
+    const pageName = CONFIG.pageName;
+
+    switch (type) {
+        case 'ejs':
+            return pageName + '.ejs';
+        case 'chunk':
+            return pageName + 'Chunk.tsx';
+        default:
+            Error('unknown type');
+    }
+}
 
 export default {
     mode: 'development',
-    entry: './' + path.join('pages', pageName, pageName + 'Chunk.tsx'),
-    context: '/home/romaro/react-mobx/project',
+    entry: './' + path.join('pages', CONFIG.pageName, pageFileName('chunk')),
+    context: path.join(CONFIG.rootPath, 'packages', CONFIG.projectDirName),
     output: {
-        path: '/home/romaro/react-mobx/project/_web',
+        path: path.join(
+            CONFIG.rootPath,
+            'packages',
+            CONFIG.projectDirName,
+            CONFIG.outputDirName,
+        ),
         filename: 'bundle.js',
     },
     resolve: {
@@ -40,12 +64,24 @@ export default {
                     },
                 ],
             },
+            {
+                /**
+                 * Для файлов без модульного постфикса (в данном случае .m)
+                 * выполняется стандартная обработка
+                 */
+                test: /^((?!\.m).)*s[ac]ss$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            },
         ],
     },
     plugins: [
         new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'style.css',
+        }),
         new HtmlWebpackPlugin({
-            template: './' + path.join('pages', pageName, pageName + '.ejs'),
+            template:
+                './' + path.join('pages', CONFIG.pageName, pageFileName('ejs')),
         }),
     ],
     optimization: {
@@ -53,7 +89,7 @@ export default {
     },
     devServer: {
         static: {
-            directory: './_web/views',
+            directory: './_public/views',
         },
         compress: true,
         port: 9000,
