@@ -16,4 +16,12 @@ type FormFieldSchema = FormSchemaNode & {
     value: string;
 };
 
+type FormFieldSchemaComputed = {
+    value: string;
+    title: string;
+    required: boolean;
+    error: string;
+    placeholder?: string;
+};
+
 type InputChangeHandler = (ev: React.FocusEvent<HTMLInputElement>) => void;
