@@ -7,6 +7,7 @@ export abstract class BaseFormFront {
     protected lang: SupportedLangs;
     constructor(...args: ConstructorParameters<BaseFormFrontConstructor>) {
         this.lang = args[0];
+        //autorun((this) => console.log(this['testOne']['value']));
     }
 
     // TODO (ctx)
@@ -51,20 +52,23 @@ export abstract class BaseFormFront {
     public inputUpdateFactory(
         fieldName: string,
     ): ReactHandlers.InputUpdateHandler {
-        //console.log('-----------1');
+        console.log('-----------1');
         if (Object.keys(this).includes(fieldName)) {
             throw new Error(`Not found Field ${fieldName}`);
         }
 
         return (ev: ReactEvents.InputUpdateEvent) => {
-            //console.log('-----------2');
+            console.log('-----------2');
             this.inputUpdateAction(fieldName, ev);
         };
     }
 
     public inputUpdateAction(name: string, ev: ReactEvents.InputUpdateEvent) {
-        //console.log('-----------4');
-        const value: string = ev.target.value;
-        this[name]['value'] = value;
+        //console.log('-----------3');
+        //console.log(name);
+        this['_' + name]['value'] = ev.target.value;
+        // console.log(this['login']['value']);
+        // console.log(this['testOne']['value']);
+        // console.log(this['testTwo']['value']);
     }
 }
