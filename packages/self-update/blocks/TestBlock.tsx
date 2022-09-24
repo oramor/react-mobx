@@ -6,7 +6,7 @@ import { ctx } from '../forms/TestForm/TestFormContext';
 export const TestBlock = observer(() => {
     return (
         <Form context={ctx}>
-            <InputText name={ctx.field1.name} context={ctx} />
+            <InputText name="field1" context={ctx} />
         </Form>
     );
 });

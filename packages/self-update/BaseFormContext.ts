@@ -1,41 +1,47 @@
-//import { makeObservable } from 'mobx';
 import { makeObservable, action, observable, computed } from 'mobx';
 
 export abstract class BaseFormContext {
-    public observableTopError = '';
+    public _topError = '';
 
     public get topError() {
-        console.log('getting top error:', this.observableTopError);
-        return this.observableTopError;
+        console.log('getting top error:', this._topError);
+        return this._topError;
     }
 
     protected makeObservableWrapper() {
-        //         const fields = {
-        //     _field1: observable,
-        //     field1: computed
-        // }
-
-        const obj: any = {
-            observableTopError: observable,
-            topError: computed,
-            updateTopErrorAction: action,
-            sendForm: action,
-            //updateField: action,
-            //...fields
+        const fields = {
+            _field1: observable,
+            field1: computed,
         };
 
-        makeObservable(obj);
+        const obj: any = {
+            _topError: observable,
+            topError: computed,
+            updateTopError: action,
+            sendForm: action,
+            updateField: action,
+            ...fields,
+        };
+
+        /**
+         * Первым аргументом должна быть ссылка
+         * на текущий класс!
+         */
+        makeObservable(this, obj);
     }
 
     public async sendForm() {
-        this.updateTopErrorAction('Top error message');
+        console.log('Init sendForm');
+        console.log('topError1: ' + this.topError);
+        this.updateTopError('Top error message');
+        console.log('topError2: ' + this.topError);
     }
 
     public updateField(fieldName: string, value: string) {
         this['_' + fieldName]['value'] = value;
     }
 
-    public updateTopErrorAction(message: string) {
-        this.observableTopError = message;
+    public updateTopError(message: string) {
+        this._topError = message;
     }
 }

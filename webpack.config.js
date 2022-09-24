@@ -5,7 +5,10 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const CONFIG = {
     rootPath: '/home/romaro/react-mobx',
-    projectDirName: 'simple',
+    /**
+     * Достаточно изменить имя проекта
+     */
+    projectDirName: 'self-update',
     outputDirName: '_public',
     pageName: 'TestPage',
 };
@@ -18,7 +21,6 @@ function pageFileName(type) {
             return pageName + '.ejs';
         case 'chunk': {
             const path = pageName + 'Chunk.tsx';
-            console.log('--------------------', path);
             return path;
         }
 
