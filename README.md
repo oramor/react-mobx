@@ -6,6 +6,7 @@ yarn add -D rimraf
 # MobX
 ```
 yarn add mobx mobx-react
+yarn add -D @types/mobx
 ```
 
 # Webpack

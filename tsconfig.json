@@ -21,11 +21,14 @@
             "ESNext"
         ],
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
     },
     "references": [
         {
             "path": "packages/project"
+        },
+        {
+            "path": "packages/self-update"
         }
     ],
     "exclude": [

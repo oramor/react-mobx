@@ -1,0 +1,3 @@
+interface FormFieldState {
+    value: string;
+}

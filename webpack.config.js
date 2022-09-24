@@ -5,9 +5,9 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const CONFIG = {
     rootPath: '/home/romaro/react-mobx',
-    projectDirName: 'project',
+    projectDirName: 'simple',
     outputDirName: '_public',
-    pageName: 'LoginPage',
+    pageName: 'TestPage',
 };
 
 function pageFileName(type) {
@@ -16,8 +16,12 @@ function pageFileName(type) {
     switch (type) {
         case 'ejs':
             return pageName + '.ejs';
-        case 'chunk':
-            return pageName + 'Chunk.tsx';
+        case 'chunk': {
+            const path = pageName + 'Chunk.tsx';
+            console.log('--------------------', path);
+            return path;
+        }
+
         default:
             Error('unknown type');
     }
@@ -82,6 +86,7 @@ export default {
         new HtmlWebpackPlugin({
             template:
                 './' + path.join('pages', CONFIG.pageName, pageFileName('ejs')),
+            //chunks: ['index', CONFIG.pageName.concat('Chunk.tsx')],
         }),
     ],
     optimization: {
